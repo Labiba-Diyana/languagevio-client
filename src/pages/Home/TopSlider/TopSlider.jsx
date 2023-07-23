@@ -11,7 +11,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const TopSlider = () => {
     return (
-        <div className='text-center pb-16'>
+        <div className='text-center pt-32'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -25,7 +25,7 @@ const TopSlider = () => {
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
-            >
+            >   
                 <SwiperSlide>
                     <div className='relative'>
                         <img className='w-full h-[760px] contrast-75' src="https://images.pexels.com/photos/5088179/pexels-photo-5088179.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
