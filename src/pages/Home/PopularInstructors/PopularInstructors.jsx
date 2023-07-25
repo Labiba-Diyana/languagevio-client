@@ -3,7 +3,7 @@ import SwiperInstructor from "./SwiperInstructor";
 
 const PopularInstructors = () => {
     const [instructors] = useInstructor();
-    const popular = instructors.filter(instructor => instructor.category === 'popular');
+    const popular = instructors.filter(instructor => instructor?.category === 'popular');
 
     return (
         <div className="py-20">

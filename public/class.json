@@ -1,0 +1,56 @@
+[
+    {
+        "image": "https://images.pexels.com/photos/5212329/pexels-photo-5212329.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Speak English with Ease and Grace",
+        "instructorName": "Arif Hasan",
+        "seats": 12,
+        "price": 53.50,
+        "students": 125,
+        "email": "arif23@gmail.com"
+    },
+    {
+        "image": "https://images.pexels.com/photos/8197544/pexels-photo-8197544.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Tongue Twister Tutorials",
+        "instructorName": "Fatima Islam",
+        "seats": 40.00,
+        "price": 1234,
+        "students": 23,
+        "email": "fatima80@gmail.com"
+    },
+    {
+        "image": "https://images.pexels.com/photos/8926554/pexels-photo-8926554.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Learn German in 90 Days",
+        "instructorName": "Jahid Ahmed",
+        "seats": 100,
+        "price": 80.99,
+        "students": 100,
+        "email": "jahid12@gmail.com"
+    },
+    {
+        "image": "https://images.pexels.com/photos/5212342/pexels-photo-5212342.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Fluent In Arabic With Grace",
+        "instructorName": "Kate Miller",
+        "seats": 60,
+        "price": 75.00,
+        "students": 128,
+        "email": "kate808@yahoo.com"
+    },
+    {
+        "image": "https://images.pexels.com/photos/8500309/pexels-photo-8500309.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Be Fluent in English within 40 days", 
+        "instructorName": "Maria Parveen",
+        "seats": 80,
+        "price": 45.50,
+        "students": 390,
+        "email": "maria101@gmail.com"
+    },
+    {
+        "image": "https://images.pexels.com/photos/6936137/pexels-photo-6936137.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "name": "Learn Spanish as a Beginner",
+        "instructorName": "Nayel Sam",
+        "seats": 200,
+        "price": 60.00,
+        "students": 90,
+        "email": "nayel89@gmail.com"
+    }
+]

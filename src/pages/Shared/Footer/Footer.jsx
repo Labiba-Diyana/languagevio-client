@@ -32,8 +32,8 @@ const Footer = () => {
                     <span className="mb-4 font-bold uppercase text-[#00AFA7] underline underline-offset-[10px]">Contact Info</span>
                     <a href='https://www.google.com/' className="link link-hover">Email: languagevio@gmail.com</a>
                     <a className="link link-hover">Call us:  02 8840753/02 8840211</a>
-                    <a className="link link-hover">Address: Road : 6/c, Uttara , Dhaka-1230</a>
-                    <a className="link link-hover">Available: Mon-Fri (9.00am-4.00pm)</a>
+                    <p>Address: Road : 6/c, Uttara , Dhaka-1230</p>
+                    <p>Available: Mon-Fri (9.00am-4.00pm)</p>
                 </div>
                 <div className="text-base text-slate-400">
                     <span className="mb-4 font-bold uppercase text-[#00AFA7] underline underline-offset-[10px]">Follow Us</span>

@@ -1,18 +1,30 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/logo.svg.svg"
+import useAuth from "../../../hooks/useAuth";
 
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {})
+        .catch(error => {
+            console.log(error)
+        })
+    }
 
     const navBarLinks = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/">Instructors</Link></li>
-        <li><Link to="/">Classes</Link></li>
-        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="/instructors">Instructors</Link></li>
+        <li><Link to="/classes">Classes</Link></li>
+        {
+            user?.email && <li><Link to="/">Dashboard</Link></li>
+        }
     </>
 
     return (
-        <div className="navbar max-w-screen-2xl pt-10 px-36 fixed z-20 bg-white bg-opacity-80">
+        <div className="navbar max-w-[1600px] pt-10 px-36 fixed z-10 bg-white bg-opacity-80">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +53,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="pl-8">
-                <button className="btn bg-[#00AFA7] w-24 text-white rounded-full border-none">Login</button>
+                {
+                    user?.email ?
+                        <div className="dropdown dropdown-bottom dropdown-end">
+                            <label tabIndex={0}>
+                                <div className="avatar online">
+                                    <div className="w-12 rounded-full">
+                                        <img src={user?.photoURL} />
+                                    </div>
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                <li onClick={handleLogOut}><a>Logout</a></li>
+                            </ul>
+                        </div> :
+                        <Link to="/login"><button className="btn bg-[#00AFA7] w-24 text-white rounded-full border-none">Login</button></Link>
+                }
             </div>
         </div>
     );
