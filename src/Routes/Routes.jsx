@@ -7,6 +7,8 @@ import Instructors from "../pages/Instructors/Instructors";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Classes from "../pages/Classes/Classes";
+import Dashboard from "../Layout/Dashboard";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses";
 
 
 
@@ -26,6 +28,16 @@ export const router = createBrowserRouter([
       {
         path: '/classes',
         element: <Classes></Classes>
+      },
+      {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: 'selected',
+            element: <SelectedClasses></SelectedClasses>
+          }
+        ]
       },
       {
         path: '/login',
