@@ -11,7 +11,7 @@ const SingleClass = ({ singlesClass }) => {
 
     const handleSelectedClass = () => {
         if (user && user.email) {
-            const selectedClass = { classId: _id, name, image, price, seats, email, instructorName, usrEmail: user?.email }
+            const selectedClass = { classId: _id, name, image, price, seats, email, instructorName, userEmail: user?.email }
             fetch('http://localhost:5000/studentClasses', {
                 method: "POST",
                 headers: {
@@ -45,7 +45,7 @@ const SingleClass = ({ singlesClass }) => {
                         <h5 className="text-xl font-semibold">{instructorName}</h5>
                         <p className="font-bold text-[#e7ae34]">{email}</p>
                     </div>
-                    {seats === 12 || seats === 40 || seats === 80 ? <button disabled className="btn text-base font-semibold text-white">Select</button> :
+                    {seats === 0 || seats === 40 || seats === 80 ? <button disabled className="btn text-base font-semibold text-white">Select</button> :
                         <button onClick={handleSelectedClass} className="btn bg-[#e7ae34] text-base font-semibold text-white">Select</button>}
                 </div>
             </div>
