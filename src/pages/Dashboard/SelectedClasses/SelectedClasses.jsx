@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/Fa';
 import axios from "axios";
 
 const SelectedClasses = () => {
@@ -36,7 +36,6 @@ const SelectedClasses = () => {
 
     return (
         <div className="pt-20 pb-36 text-center w-10/12">
-            {/* <div className="text-4xl font-bold">My Selected Classes</div> */}
             <SectionTitle heading="My" specialWord="Selected Classes"></SectionTitle>
             <div className="bg-[#9CD1CD] pt-14 text-stone-900 text-center">
                 <h1 className="text-start pl-8 text-2xl pb-8">Total Selected Classes: {selectedClasses.length}</h1>
@@ -45,7 +44,7 @@ const SelectedClasses = () => {
                         {/* head */}
                         <tbody className="px-12 overflow-hidden hover:overflow-auto">
                             {
-                                selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id} className="border-y-2 border-white">
+                                selectedClasses.map((selectedClass, index) => <tr key={selectedClass._id} className="border-t-4 border-white">
                                     <th className="pl-6 text-lg">{index + 1}</th>
                                     <td>
                                         <div className="flex space-x-3 items-center">

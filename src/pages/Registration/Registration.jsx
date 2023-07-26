@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Registration = () => {
@@ -113,6 +114,7 @@ const Registration = () => {
                             </div>
                         </form>
                         <p><small><Link to="/login">Already have an account? Go to Login</Link></small></p>
+                        <SocialLogin title="Continue With Google"></SocialLogin>
                     </div>
                 </div>
             </div>

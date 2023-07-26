@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -59,6 +60,7 @@ const Login = () => {
                             </div>
                         </form>
                         <p><small><Link to="/registration">New here? Create a new account</Link></small></p>
+                        <SocialLogin title="Sing in with google"></SocialLogin>
                     </div>
                 </div>
             </div>
