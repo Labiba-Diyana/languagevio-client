@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const Registration = () => {
@@ -23,10 +25,24 @@ const Registration = () => {
                         console.log(user);
                         updateUserProfile(data.name, data.photo)
                             .then(() => {
-                                reset();
+                                const saveUser = { name: data.name, email: data.email, image: data.photo }
+                                axios.post('http://localhost:5000/users', saveUser)
+                                .then(res => {
+                                    console.log(res.data)
+                                    if(res.data.insertedId){
+                                        reset()
+                                        Swal.fire({
+                                            position: 'top-end',
+                                            icon: 'success',
+                                            title: 'User Registered Successfully',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                          })
+                                    }
+                                })
                             })
                     })
-                    logOut()
+                logOut()
                     .then(() => {
                         navigate('/login')
                     })

@@ -8,8 +8,10 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import Classes from "../pages/Classes/Classes";
 import Dashboard from "../Layout/Dashboard";
-import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectecClasses/SelectedClasses";
-import UserHome from "../pages/Dashboard/SelectedClasses/UserHome/UserHome";
+
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses";
 
 
 
@@ -42,6 +44,10 @@ export const router = createBrowserRouter([
           {
             path: 'selected',
             element: <SelectedClasses></SelectedClasses>
+          },
+          {
+            path: 'allUsers',
+            element: <AllUsers></AllUsers>
           }
         ]
       },

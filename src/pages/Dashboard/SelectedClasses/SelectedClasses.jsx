@@ -1,10 +1,39 @@
-import SectionTitle from "../../../../components/SectionTitle";
-import useSelectedClasses from "../../../../hooks/useSelectedClasses";
-
-
+import Swal from "sweetalert2";
+import SectionTitle from "../../../components/SectionTitle";
+import useSelectedClasses from "../../../hooks/useSelectedClasses";
+import { FaTrashAlt } from 'react-icons/fa';
+import axios from "axios";
 
 const SelectedClasses = () => {
-    const [selectedClasses] = useSelectedClasses();
+    const [selectedClasses, refetch] = useSelectedClasses();
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/studentClasses/${id}`)
+                    .then(res => {
+                        const data = res.data;
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
+
     return (
         <div className="pt-20 pb-36 text-center w-10/12">
             {/* <div className="text-4xl font-bold">My Selected Classes</div> */}
@@ -35,14 +64,14 @@ const SelectedClasses = () => {
                                         </div>
                                     </td>
                                     <td className="flex-col space-y-3 items-center">
-                                        
-                                            <p className="text-xl font-bold">{selectedClass.instructorName}</p>
-                                            <p className="text-base opacity-80">{selectedClass.email}</p>
-                                    
+
+                                        <p className="text-xl font-bold">{selectedClass.instructorName}</p>
+                                        <p className="text-base opacity-80">{selectedClass.email}</p>
+
                                     </td>
-                                    <td><button className="btn btn-sm bg-red-600 ml-10">Delete</button></td>
+                                    <td><button onClick={() => handleDelete(selectedClass._id)} className="btn bg-[#CB4154] border-none ml-10"><FaTrashAlt className="text-white h-12 w-4"></FaTrashAlt></button></td>
                                     <td>
-                                        <button className="btn btn-ghost ml-10 btn-xs mr-6">Pay</button>
+                                        <button className="btn text-white text-base font-semibold border-none bg-[#bd9e20] ml-10 mr-6">Pay</button>
                                     </td>
                                 </tr>)
                             }
