@@ -51,10 +51,14 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>My Home</NavLink></li>
-                                <li><NavLink to="/dashboard/selected" style={({ isActive }) => ({
+                                <li><NavLink to="/dashboard/addAClass" style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
-                                })}>Add Class</NavLink></li>
+                                })}>Add A Class</NavLink></li>
+                                <li><NavLink to="/dashboard/myClasses" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>My Classes</NavLink></li>
                             </>
                         }
                         {

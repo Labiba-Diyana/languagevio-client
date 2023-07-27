@@ -57,7 +57,7 @@ const AllUsers = () => {
     }
 
     return (
-        <div className="pt-20 pb-36 text-center  w-9/12">
+        <div className="pt-20 pb-36 text-center w-9/12">
             <SectionTitle heading="Manage" specialWord="Users"></SectionTitle>
             <div className="bg-stone-50 p-10 rounded">
                 <h3 className="text-2xl text-start pl-7 font-medium pb-5">All Users: {users.length}</h3>
