@@ -37,11 +37,12 @@ const AllUsers = () => {
             })
     }
 
-    const handleMakeInstructor = (id, name) => {
-        axios.patch(`http://localhost:5000/instructor/${id}`)
+    const handleMakeInstructor = (id, name, email, image) => {
+        const newInstructor = {name, email, image, category: 'normal'};
+        axios.patch(`http://localhost:5000/users/instructor/${id}`, newInstructor)
             .then(res => {
                 console.log(res.data)
-                if (res.data.modifiedCount > 0) {
+                if (res.data.result.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: 'center',
@@ -79,7 +80,7 @@ const AllUsers = () => {
                                     <td>{user.email}</td>
                                     <td className="pl-8">{
                                         user.role === 'instructor' ? <p className="font-semibold text-blue-800">Instructor</p> :
-                                            <button onClick={() => handleMakeInstructor(user._id.user.name)} className="btn bg-[#CB4154]"><FaUserTie className="text-white w-4 h-10"></FaUserTie></button>
+                                            <button onClick={() => handleMakeInstructor(user._id, user.name, user.email, user.image)} className="btn bg-[#CB4154]"><FaUserTie className="text-white w-4 h-10"></FaUserTie></button>
                                     }</td>
                                     <td className="pl-6">
                                         {
