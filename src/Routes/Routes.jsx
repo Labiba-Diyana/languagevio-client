@@ -13,6 +13,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'allUsers',
-            element: <AllUsers></AllUsers>
+            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
           }
         ]
       },

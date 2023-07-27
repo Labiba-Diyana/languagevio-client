@@ -2,10 +2,12 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo/logo.svg.svg"
 import bg from '../assets/background-img/bg-2.png'
 import useAdmin from "../hooks/useAdmin";
+import useVerifyInstructor from "../hooks/useVerifyInstructor";
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useVerifyInstructor();
     return (
         <div className="pt-[120px]">
             <div className="drawer lg:drawer-open">
@@ -32,7 +34,7 @@ const Dashboard = () => {
                         </li>
                         {/* links */}
                         {
-                            isAdmin ? <>
+                            isAdmin && <>
                                 <li><NavLink to="/dashboard/home" style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
@@ -41,7 +43,22 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>Manage Users</NavLink></li>
-                            </> : <>
+                            </>
+                        }
+                        {
+                            isInstructor && <>
+                               <li><NavLink to="/dashboard/home" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>My Home</NavLink></li>
+                                <li><NavLink to="/dashboard/selected" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>Add Class</NavLink></li>
+                            </>
+                        }
+                        {
+                            !isAdmin && !isInstructor &&  <>
                                 <li><NavLink to="/dashboard/home" style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
