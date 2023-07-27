@@ -49,7 +49,7 @@ const AddAClass = () => {
 
     return (
         <div className="pt-20 pb-36 text-center mx-auto w-9/12">
-            <SectionTitle heading="Add your" specialWord="Class"></SectionTitle>
+            <SectionTitle heading="Add Your" specialWord="Class"></SectionTitle>
             <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
                 {/* first row */}
                 <div className="flex space-x-8">
