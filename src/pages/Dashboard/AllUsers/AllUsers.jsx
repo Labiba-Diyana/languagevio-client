@@ -20,11 +20,12 @@ const AllUsers = () => {
         }
     })
 
-    const handleMakeAdmin = (id, name) => {
-        axios.patch(`http://localhost:5000/users/admin/${id}`)
+    const handleMakeAdmin = (id, name, email, image) => {
+        const oldInstructor = {name, email, image, category: 'normal'};
+        axios.patch(`http://localhost:5000/users/admin/${id}`, oldInstructor)
             .then(res => {
                 console.log(res.data)
-                if (res.data.modifiedCount > 0) {
+                if (res.data?.modifiedCount > 0 || res.data?.result?.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: 'center',
@@ -79,13 +80,13 @@ const AllUsers = () => {
                                     <td className="text-lg">{user.name}</td>
                                     <td>{user.email}</td>
                                     <td className="pl-8">{
-                                        user.role === 'instructor' ? <p className="font-semibold text-blue-800">Instructor</p> :
+                                        user.role === 'instructor' ? <p disabled className="font-semibold text-blue-800">Instructor</p> :
                                             <button onClick={() => handleMakeInstructor(user._id, user.name, user.email, user.image)} className="btn bg-[#CB4154]"><FaUserTie className="text-white w-4 h-10"></FaUserTie></button>
                                     }</td>
                                     <td className="pl-6">
                                         {
-                                            user.role === 'admin' ? <p className="text-[#c54d5d] font-semibold">Admin</p> :
-                                                <button onClick={() => handleMakeAdmin(user._id, user.name)} className="btn bg-[#e7ae34]"><FaUserShield className="text-white w-5 h-11"></FaUserShield></button>
+                                            user.role === 'admin' ? <p disabled className="text-[#c54d5d] font-semibold">Admin</p> :
+                                                <button onClick={() => handleMakeAdmin(user._id, user.name, user.email, user.image)} className="btn bg-[#e7ae34]"><FaUserShield className="text-white w-5 h-11"></FaUserShield></button>
                                         }
                                     </td>
                                 </tr>)

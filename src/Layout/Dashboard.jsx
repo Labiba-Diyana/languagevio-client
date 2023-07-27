@@ -1,10 +1,11 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo/logo.svg.svg"
 import bg from '../assets/background-img/bg-2.png'
+import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
-    const isAdmin = false;
+    const [isAdmin] = useAdmin();
     return (
         <div className="pt-[120px]">
             <div className="drawer lg:drawer-open">
@@ -36,23 +37,22 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>My Home</NavLink></li>
-                                <li><NavLink to="/dashboard/selected" style={({ isActive }) => ({
-                                    color: isActive ? 'white' : 'black',
-                                    background: isActive ? 'transparent' : 'transparent'
-                                })}>My Selected Classes</NavLink></li>
-                            </> :  <>
-                                <li><NavLink to="/dashboard/home" style={({ isActive }) => ({
-                                    color: isActive ? 'white' : 'black',
-                                    background: isActive ? 'transparent' : 'transparent'
-                                })}>My Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allUsers" style={({ isActive }) => ({
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>Manage Users</NavLink></li>
+                            </> : <>
+                                <li><NavLink to="/dashboard/home" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>My Home</NavLink></li>
+                                <li><NavLink to="/dashboard/selected" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>My Selected Classes</NavLink></li>
                             </>
                         }
                     </ul>
-
                 </div>
             </div>
         </div>
