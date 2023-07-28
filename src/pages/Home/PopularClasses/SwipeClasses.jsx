@@ -39,6 +39,7 @@ const SwipeClasses = ({ classes }) => {
             >
                 <SwiperSlide>
                     {
+                        first.length > 0 &&
                         first.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)
@@ -46,6 +47,7 @@ const SwipeClasses = ({ classes }) => {
                 </SwiperSlide>
                 <SwiperSlide>
                     {
+                        second.length > 0 &&
                         second.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)
@@ -53,6 +55,7 @@ const SwipeClasses = ({ classes }) => {
                 </SwiperSlide>
                 <SwiperSlide>
                     {
+                        third.length > 0 &&
                         third.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)
@@ -60,6 +63,7 @@ const SwipeClasses = ({ classes }) => {
                 </SwiperSlide>
                 <SwiperSlide>
                     {
+                        fourth.length > 0 &&
                         fourth.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)
@@ -67,6 +71,7 @@ const SwipeClasses = ({ classes }) => {
                 </SwiperSlide>
                 <SwiperSlide>
                     {
+                        fifth.length > 0 &&
                         fifth.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)
@@ -74,6 +79,7 @@ const SwipeClasses = ({ classes }) => {
                 </SwiperSlide>
                 <SwiperSlide>
                     {
+                        sixth.length > 0 &&
                         sixth.map(singleClass => <SingleClass
                             key={singleClass._id}
                             singlesClass={singleClass}></SingleClass>)

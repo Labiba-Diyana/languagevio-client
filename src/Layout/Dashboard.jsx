@@ -43,6 +43,10 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>Manage Users</NavLink></li>
+                                <li><NavLink to="/dashboard/manageClasses" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>Manage Classes</NavLink></li>
                             </>
                         }
                         {

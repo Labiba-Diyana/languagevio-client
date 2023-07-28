@@ -11,7 +11,7 @@ const MyClasses = () => {
         queryKey: ['newClasses'],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/newClasses?email=${user?.email}`)
+            const res = await axiosSecure.get(`/newClasses/instructor?email=${user?.email}`)
             return res.data;
         }
     })
@@ -27,7 +27,7 @@ const MyClasses = () => {
                         {/* head */}
                         <thead>
                             <tr className="text-xl">
-                                <th>#</th>
+                                <th className="pl-7">#</th>
                                 <th>Classes Info</th>
                                 <th>Instructor Info</th>
                                 <th>Status</th>
