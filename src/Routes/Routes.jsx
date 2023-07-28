@@ -15,10 +15,10 @@ import SelectedClasses from "../pages/Dashboard/SelectedClasses/SelectedClasses"
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AddAClass from "../pages/Dashboard/AddAClass/AddAClass";
-import MyClasses from "../pages/Dashboard/MyClassea/MyClasses";
+import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import InstructorRoute from "./InstructorRoute";
-
+import FeedBack from "../pages/Dashboard/FeedBack/FeedBack";
 
 
 
@@ -69,6 +69,10 @@ export const router = createBrowserRouter([
           {
             path: 'manageClasses',
             element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+          },
+          {
+            path: 'feedback/:id',
+            element: <FeedBack></FeedBack>,
           }
         ]
       },

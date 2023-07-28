@@ -20,7 +20,7 @@ const MyClasses = () => {
     return (
         <div className="pt-20 pb-36 text-center mx-auto w-11/12">
             <SectionTitle heading="My" specialWord="Classes"></SectionTitle>
-            <h1 className="text-start text-blue-900 font-medium pl-8 text-2xl pb-5">Total Classes: {classes.length}</h1>
+            <h1 className="text-start font-medium pl-8 text-2xl pb-5">Total Classes: {classes.length}</h1>
             <div className="bg-[#9CD1CD] pt-14 text-stone-900 text-center">
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -32,7 +32,7 @@ const MyClasses = () => {
                                 <th>Instructor Info</th>
                                 <th>Status</th>
                                 <th className="flex-col">
-                                    <span>Enrolled Students <br /> (in Total)</span>
+                                    <span>Enrolled <br /> Students</span>
                                     <span></span>
                                 </th>
                             </tr>
@@ -40,7 +40,7 @@ const MyClasses = () => {
                         <tbody className="px-12 overflow-hidden hover:overflow-auto">
                             {
                                 classes.map((singleClass, index) => <tr key={singleClass._id} className="border-t-4 border-white">
-                                    <th className="pl-7 text-lg">{index + 1}</th>
+                                    <th className="pl-7 text-lg h">{index + 1}</th>
                                     <td>
                                         <div className="flex space-x-3 items-center">
                                             <div className="avatar">
@@ -48,7 +48,7 @@ const MyClasses = () => {
                                                     <img src={singleClass.image} />
                                                 </div>
                                             </div>
-                                            <div className="w-72">
+                                            <div className="w-64">
                                                 <div className="font-bold text-2xl">{singleClass.name}</div>
                                                 <div className="text-lg opacity-80">
                                                     <p>Available seats: {singleClass.seats}</p>
@@ -65,11 +65,19 @@ const MyClasses = () => {
                                     <td className="text-lg font-semibold pr-10">
                                         {singleClass?.status}
                                     </td>
-                                    <td className="text-lg font-bold pr-12 pl-16">
+                                    <td className="text-lg font-bold pl-12">
                                         {singleClass.students}
                                     </td>
-                                    <td className="pr-16">
-                                        <button>FeedBack</button>
+                                    <td className="pr-8">
+                                        {
+                                            singleClass?.feedback &&
+                                            <div className="dropdown dropdown-bottom dropdown-end">
+                                                <label tabIndex={0} className="text-xl font-semibold text-emerald-700 underline underline-offset-2 m-1">See Feedback</label>
+                                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-4 shadow bg-base-100 text-xl rounded-box w-96 h-24 overflow-auto">
+                                                    <li>{singleClass?.feedback}</li>
+                                                </ul>
+                                            </div>
+                                        }
                                     </td>
                                 </tr>)
                             }

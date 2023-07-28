@@ -48,9 +48,9 @@ const AddAClass = () => {
     };
 
     return (
-        <div className="pt-20 pb-36 text-center mx-auto w-9/12">
+        <div className="pt-20 pb-36 text-center mx-auto w-9/12 ">
             <SectionTitle heading="Add Your" specialWord="Class"></SectionTitle>
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full bg-neutral-100 bg-opacity-20 shadow-2xl rounded-xl p-12 space-y-6">
                 {/* first row */}
                 <div className="flex space-x-8">
                     <div className="form-control w-1/2">
@@ -58,16 +58,16 @@ const AddAClass = () => {
                             <span className="label-text">Class Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" {...register("name", { required: true })} placeholder="class name..." className="input input-bordered w-full" />
-                            {errors.password && <span className="text-red-600">Class name is required</span>}
+                            <input type="text" {...register("name", { required: true })} placeholder="class name" className="input input-bordered w-full" />
                         </label>
+                        {errors.name && <span className="text-red-600 text-start">Class name is required</span>}
                     </div>
                     <div className="form-control w-1/2">
                         <label className="label">
                             <span className="label-text">Class Image</span>
                         </label>
                         <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered w-full" />
-                        {errors.password && <span className="text-red-600">Class image is required</span>}
+                        {errors.image && <span className="text-red-600 text-start">Class image is required</span>}
                     </div>
                 </div>
                 {/* second row */}
@@ -77,8 +77,7 @@ const AddAClass = () => {
                             <span className="label-text">Instructor Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" {...register("instructorName", { required: true })} placeholder="instructor name" className="input input-bordered w-full" />
-                            {errors.password && <span className="text-red-600">Instructor name is required</span>}
+                            <input type="text" readOnly defaultValue={user?.displayName} {...register("instructorName")} placeholder="instructor name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
@@ -86,8 +85,7 @@ const AddAClass = () => {
                             <span className="label-text">Instructor Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" {...register("email", { required: true })}  placeholder="instructor email" className="input input-bordered w-full" />
-                            {errors.password && <span className="text-red-600">Instructor Email is required</span>}
+                            <input type="email" readOnly defaultValue={user?.email} {...register("email")}  placeholder="instructor email" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -99,8 +97,8 @@ const AddAClass = () => {
                         </label>
                         <label className="input-group">
                             <input type="number" {...register("seats", { required: true })}  placeholder="available seats" className="input input-bordered w-full" />
-                            {errors.password && <span className="text-red-600">Available seats is required</span>}
                         </label>
+                        {errors.seats && <span className="text-red-600 text-start">Available seats is required</span>}
                     </div>
                     <div className="form-control w-1/2">
                         <label className="label">
@@ -108,11 +106,11 @@ const AddAClass = () => {
                         </label>
                         <label className="input-group">
                             <input type="number" {...register("price", { required: true })}  placeholder="price" className="input input-bordered w-full" />
-                            {errors.password && <span className="text-red-600">Price is required</span>}
                         </label>
+                        {errors.price && <span className="text-red-600 text-start">Price is required</span>}
                     </div>
                 </div>
-                <input type="submit" value="Add your class" className="btn btn-block bg-blue-200" />
+                <input type="submit" value="Add your class" className="btn btn-block bg-[#9CD1CD]" />
             </form>
         </div>
     );
