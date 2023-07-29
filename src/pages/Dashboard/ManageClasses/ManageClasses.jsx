@@ -12,7 +12,7 @@ const ManageClasses = () => {
     const { loading } = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const { data: classes = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['classes'],
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get('/newClasses')

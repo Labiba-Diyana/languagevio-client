@@ -3,6 +3,7 @@ import SectionTitle from "../../../components/SectionTitle";
 import useSelectedClasses from "../../../hooks/useSelectedClasses";
 import { FaTrashAlt } from 'react-icons/Fa';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SelectedClasses = () => {
     const [selectedClasses, refetch] = useSelectedClasses();
@@ -70,7 +71,7 @@ const SelectedClasses = () => {
                                     </td>
                                     <td><button onClick={() => handleDelete(selectedClass._id)} className="btn bg-[#CB4154] border-none ml-10"><FaTrashAlt className="text-white h-12 w-4"></FaTrashAlt></button></td>
                                     <td>
-                                        <button className="btn text-white text-base font-semibold border-none bg-[#bd9e20] ml-10 mr-6">Pay</button>
+                                        <Link to={`/dashboard/payment/${selectedClass._id}`}><button className="btn text-white text-base font-semibold border-none bg-[#bd9e20] ml-10 mr-6">Pay</button></Link>
                                     </td>
                                 </tr>)
                             }
