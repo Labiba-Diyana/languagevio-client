@@ -8,10 +8,32 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import SectionTitle from "../../../components/SectionTitle"
 import Instructor from '../../../components/Instructor';
+import { useEffect, useState } from 'react';
 
 
 const SwiperInstructor = ({ instructors }) => {
-    // console.log(instructors);
+    const [slidesPerView, setSlidesPerView] = useState(1);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 640) {
+                setSlidesPerView(3);
+            } else {
+                setSlidesPerView(1);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, [])
+
+
     const first = instructors.slice(0, 1)
     const second = instructors.slice(1, 2)
     const third = instructors.slice(2, 3)
@@ -25,7 +47,7 @@ const SwiperInstructor = ({ instructors }) => {
                 <SectionTitle heading="Our Popular" specialWord="Instructors" subHeading="Here is some of our amazing instructors, so popular among the students."></SectionTitle>
             </div>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={slidesPerView}
                 spaceBetween={30}
                 autoplay={{
                     delay: 3500,

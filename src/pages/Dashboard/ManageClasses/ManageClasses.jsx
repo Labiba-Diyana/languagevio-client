@@ -21,7 +21,7 @@ const ManageClasses = () => {
     });
 
     const handleApproved = (id, image, name, instructorName, seats, price, students, email) => {
-        const approvedClass = { image, name, instructorName, seats, price, students, email }
+        const approvedClass = { image, name, instructorName, seats, price, students, email, approvedId: id }
 
         axios.patch(`http://localhost:5000/newClasses/approved/${id}`, approvedClass)
             .then(res => {
@@ -62,8 +62,8 @@ const ManageClasses = () => {
                 {
                     classes.map(singleClass => <div key={singleClass._id} className="card card-side bg-neutral-100 shadow-2xl p-5 mb-8 space-x-5  justify-between items-center">
                         <div className="flex space-x-6">
-                            <div className="avatar w-1/2">
-                                <div className="w-full rounded-xl">
+                            <div className="avatar">
+                                <div className="w-48 h-full rounded-xl">
                                     <img src={singleClass.image} />
                                     {
                                          singleClass?.status === 'pending' &&

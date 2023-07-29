@@ -1,5 +1,5 @@
 .card-content {
-    height: 350px; /* You can adjust this value as needed */
+    height: 650px; /* You can adjust this value as needed */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

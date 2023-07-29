@@ -44,7 +44,7 @@ const MyClasses = () => {
                                     <td>
                                         <div className="flex space-x-3 items-center">
                                             <div className="avatar">
-                                                <div className="w-36 rounded-xl">
+                                                <div className="w-40 h-44 rounded-xl">
                                                     <img src={singleClass.image} />
                                                 </div>
                                             </div>
@@ -73,7 +73,7 @@ const MyClasses = () => {
                                             singleClass?.feedback &&
                                             <div className="dropdown dropdown-bottom dropdown-end">
                                                 <label tabIndex={0} className="text-xl font-semibold text-emerald-700 underline underline-offset-2 m-1">See Feedback</label>
-                                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-4 shadow bg-base-100 text-xl rounded-box w-96 h-24 overflow-auto">
+                                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-4 shadow bg-base-100 text-xl rounded-box w-96 h-20 overflow-auto">
                                                     <li>{singleClass?.feedback}</li>
                                                 </ul>
                                             </div>

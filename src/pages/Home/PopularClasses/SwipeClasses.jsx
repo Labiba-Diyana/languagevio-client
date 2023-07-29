@@ -7,10 +7,34 @@ import { Autoplay, Pagination } from 'swiper/modules';
 
 import SectionTitle from "../../../components/SectionTitle"
 import SingleClass from '../../../components/SingleClass/SingleClass';
+import { useEffect, useState } from 'react';
+
 
 
 
 const SwipeClasses = ({ classes }) => {
+    const [slidesPerView, setSlidesPerView] = useState(1);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 640) {
+                setSlidesPerView(3);
+            } else {
+                setSlidesPerView(1);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, [])
+
+
     const first = classes.slice(0, 1)
     const second = classes.slice(1, 2)
     const third = classes.slice(2, 3)
@@ -25,7 +49,7 @@ const SwipeClasses = ({ classes }) => {
                 <SectionTitle heading="Our Popular" specialWord="Classes" subHeading="Here is some of our top 6 most popular classes."></SectionTitle>
             </div>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={slidesPerView}
                 spaceBetween={30}
                 autoplay={{
                     delay: 4000,

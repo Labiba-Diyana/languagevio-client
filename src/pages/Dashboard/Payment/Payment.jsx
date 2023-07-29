@@ -30,7 +30,8 @@ const Payment = () => {
                    {
                     classes.map(singleClass => <CheckOutFrom
                     key={singleClass._id}
-                    price={singleClass.price}></CheckOutFrom>)
+                    price={singleClass.price}
+                    singleClass={singleClass}></CheckOutFrom>)
                    }
                 </Elements>
             </div>

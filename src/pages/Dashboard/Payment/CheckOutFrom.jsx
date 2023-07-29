@@ -4,8 +4,8 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 
 
-const CheckOutFrom = ({ price }) => {
-    console.log(price)
+const CheckOutFrom = ({ price, singleClass }) => {
+    const {approvedId, classId, image, name, email, instructorName} = singleClass
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -74,6 +74,26 @@ const CheckOutFrom = ({ price }) => {
         setProcessing(false);
         if (paymentIntent.status === "succeeded") {
             setTransactionId(paymentIntent.id)
+            const payment = {
+                userEmail: user?.email,
+                transactionId: paymentIntent.id,
+                selectedId : singleClass._id,
+                classId,
+                approvedId,
+                name,
+                image,
+                date: new Date(),
+                instructorName,
+                email,
+                price,
+                seats : singleClass.seats - 1,
+                students: singleClass.students + 1,                
+            }
+
+            axiosSecure.post('/payments', payment)
+            .then(res => {
+                console.log(res.data)
+            })
         }
 
     }
