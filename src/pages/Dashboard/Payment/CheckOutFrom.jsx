@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const CheckOutFrom = ({ price, singleClass }) => {
@@ -92,7 +93,15 @@ const CheckOutFrom = ({ price, singleClass }) => {
 
             axiosSecure.post('/payments', payment)
             .then(res => {
-                console.log(res.data)
+                if(res.data.result.insertedId){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your payment been successful',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
             })
         }
 

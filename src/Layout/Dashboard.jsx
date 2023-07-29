@@ -75,6 +75,10 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>My Selected Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/enrolled" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>My Enrolled Classes</NavLink></li>
                             </>
                         }
                     </ul>
