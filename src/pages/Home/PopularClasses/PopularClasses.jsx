@@ -8,7 +8,7 @@ const PopularClasses = () => {
     const popularClasses = classes.slice(0, 6);
 
     return (
-        <div className="pt-24">
+        <div className="pt-32 pb-14">
             <SwipeClasses classes={popularClasses}></SwipeClasses>
         </div>
     );
