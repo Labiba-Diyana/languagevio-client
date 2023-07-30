@@ -4,19 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 
-const formatDate = (dateStr) => {
-    const date = new Date(dateStr);
-    const options = {
-      weekday: 'short',
-      day: 'numeric',
-      month: 'long',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: true,
-    };
-  
-    return new Intl.DateTimeFormat('en-US', options).format(date);
-  };
+
 
 
 const CheckOutFrom = ({ price, singleClass }) => {
@@ -88,7 +76,6 @@ const CheckOutFrom = ({ price, singleClass }) => {
         console.log('payment intent', paymentIntent);
         setProcessing(false);
         if (paymentIntent.status === "succeeded") {
-            const formattedDate = formatDate(new Date());
             setTransactionId(paymentIntent.id)
             const payment = {
                 userEmail: user?.email,
@@ -98,7 +85,7 @@ const CheckOutFrom = ({ price, singleClass }) => {
                 approvedId,
                 name,
                 image,
-                date: formattedDate,
+                date: new Date().getTime(),
                 instructorName,
                 email,
                 price,

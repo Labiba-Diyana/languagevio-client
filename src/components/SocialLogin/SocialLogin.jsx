@@ -1,9 +1,10 @@
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle } from 'react-icons/fa';
 
 
-const SocialLogin = ({ title }) => {
+const SocialLogin = () => {
     const { googleLogin } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,9 +27,11 @@ const SocialLogin = ({ title }) => {
     }
 
     return (
-        <div>
-            <div className="divider"></div>
-            <button onClick={handleGoogleLogin} className="btn btn-outline">{title}</button>
+        <div className="w-full text-center mt-5 ">
+            <div className="divider px-8"></div>
+            <button onClick={handleGoogleLogin} className="btn btn-circle mt-2 mb-4 btn-outline text-[#00AFA7] font-bold">
+                <FaGoogle></FaGoogle>
+            </button>
         </div>
     );
 };

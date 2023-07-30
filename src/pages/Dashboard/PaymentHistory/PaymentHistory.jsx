@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle";
+import SinglePayment from "./SinglePayment";
 
 
 const PaymentHistory = () => {
@@ -35,14 +36,9 @@ const PaymentHistory = () => {
                         </thead>
                         <tbody className="bg-white">
                             {
-                                payments.map((payment, index) => <tr key={payment._id} className="font-semibold text-lg">
-                                    <th>{index + 1}</th>
-                                    <td className="text-xl">{payment.name}</td>
-                                    <td>{payment.userEmail}</td>
-                                    <td className="pl-12">${payment.price}</td>
-                                    <td>{payment.date}</td>
-                                    
-                                </tr>)
+                                payments.map((payment, index) => <SinglePayment key={payment._id}
+                                payment={payment}
+                                index={index}></SinglePayment>)
                             }
                         </tbody>
                     </table>

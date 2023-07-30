@@ -5,9 +5,9 @@ const HappyClient = () => {
     return (
         <div className="text-center w-9/12 mx-auto pt-14 pb-44">
             <SectionTitle heading="Our Happy" specialWord="Students" subHeading="Here is some of our students review over our services."></SectionTitle>
-            <div className="w-full flex space-x-8">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="">
-                    <div className="w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
+                    <div className="w-80 lg:w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
                         <h4 className="text-xl font-bold mb-6 text-[#CB4154]">Supportive and insightful </h4>
                         <p>Loved every minute studying and gained great knowledge. Looking forward to life as a life coach and being part of changing lives for the better.</p>
                     </div>
@@ -20,7 +20,7 @@ const HappyClient = () => {
                     </div>
                 </div>
                 <div className="">
-                    <div className="w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
+                    <div className="w-80 lg:w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
                         <h4 className="text-xl font-bold mb-6 text-[#e7ae34]">Great service from tutor </h4>
                         <p>All notes were easy to read, and I found the homework challenging, but not impossible. I enjoyed researching! Very good. Lots of feedback!</p>
                     </div>
@@ -33,7 +33,7 @@ const HappyClient = () => {
                     </div>
                 </div>
                 <div className="">
-                    <div className="w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
+                    <div className="w-80 lg:w-96 border-2 border-stone-200 p-8 text-start bg-stone-100">
                         <h4 className="text-xl font-bold mb-6 text-[#00AFA7]">Helpful guidance</h4>
                         <p>I would just like to say I enjoyed doing this course. It gave me the confidence and skills that I needed to get into the industry. Thank you.</p>
                     </div>

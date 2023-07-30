@@ -10,12 +10,12 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-        .then(() => {
-            navigate('/login');
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(() => {
+                navigate('/login');
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const navBarLinks = <>
@@ -28,7 +28,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar max-w-[1600px] pt-10 px-36 fixed z-10 bg-white bg-opacity-80">
+        <div className="navbar w-full lg:max-w-[1600px] pt-10 px-4 lg:px-36 fixed z-10 bg-white bg-opacity-80">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,35 +44,37 @@ const Navbar = () => {
                             <img src={logo} alt="" />
                         </Link>
                     </div>
-                    <h2 className="text-3xl italic">Langu
-                        <span className="text-[#CB4154] font-bold text-4xl">a</span>
-                        <span className="text-[#e7ae34] font-bold text-4xl">ge</span>
-                        <span className="text-[#00AFA7] font-bold text-4xl">vio</span>
+                    <h2 className="text-xl lg:text-3xl italic">Langu
+                        <span className="text-[#CB4154] font-bold text-2xl lg:text-4xl">a</span>
+                        <span className="text-[#e7ae34] font-bold text-2xl lg:text-4xl">ge</span>
+                        <span className="text-[#00AFA7] font-bold text-2xl lg:text-4xl">vio</span>
                     </h2>
                 </div>
             </div>
-            <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 space-x-5 text-base text- font-semibold">
-                    {navBarLinks}
-                </ul>
-            </div>
-            <div className="pl-8">
-                {
-                    user?.email ?
-                        <div className="dropdown dropdown-bottom dropdown-end">
-                            <label tabIndex={0}>
-                                <div className="avatar online">
-                                    <div className="w-12 rounded-full">
-                                        <img src={user?.photoURL} />
+            <div className="navbar-end">
+                <div className=" hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 space-x-5 text-base text- font-semibold">
+                        {navBarLinks}
+                    </ul>
+                </div>
+                <div className="pl-8">
+                    {
+                        user?.email ?
+                            <div className="dropdown dropdown-bottom dropdown-end">
+                                <label tabIndex={0}>
+                                    <div className="avatar online">
+                                        <div className="w-12 rounded-full">
+                                            <img src={user?.photoURL} />
+                                        </div>
                                     </div>
-                                </div>
-                            </label>
-                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li onClick={handleLogOut}><a>Logout</a></li>
-                            </ul>
-                        </div> :
-                        <Link to="/login"><button className="btn bg-[#00AFA7] w-24 text-white rounded-full border-none">Login</button></Link>
-                }
+                                </label>
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li onClick={handleLogOut}><a>Logout</a></li>
+                                </ul>
+                            </div> :
+                            <Link to="/login"><button className="btn bg-[#00AFA7] w-20 lg:w-24 text-white rounded-full border-none">Login</button></Link>
+                    }
+                </div>
             </div>
         </div>
     );

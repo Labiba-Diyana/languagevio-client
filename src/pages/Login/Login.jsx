@@ -3,6 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { FaEye } from 'react-icons/fa';
+import { FaEyeSlash } from 'react-icons/fa';
+import bg from '../../assets/background-img/bg-2.png'
+import img from '../../assets/image/login.png'
 
 
 const Login = () => {
@@ -28,13 +32,11 @@ const Login = () => {
 
     return (
         <div className="pt-32">
-            <div className="hero min-h-screen bg-base-200">
+            <div style={{backgroundImage: `url(${bg})`}} className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
-                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                <img src={img} alt="" />
+                    <div className="card p-5 flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                        <h3 className="text-center text-3xl font-bold mb-[-10px] mt-6">Login</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -49,18 +51,18 @@ const Login = () => {
                                 </label>
                                 <input type={show ? "text" : "password"} name="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" />
                                 {errors.password && <span className="text-red-600">Password is required</span>}
-                                <p onClick={() => setShow(!show)}>
+                                <p className="text-end" onClick={() => setShow(!show)}>
                                     {
-                                        show ? <span>Hide</span> : <span>Show</span>
+                                        show ? <button><FaEyeSlash className="w-10 mt-3"></FaEyeSlash></button> : <button><FaEye className="w-10 mt-3"></FaEye></button>
                                     }
                                 </p>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn bg-[#00AFA7] text-lg text-white" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p><small><Link to="/registration">New here? Create a new account</Link></small></p>
-                        <SocialLogin title="Sing in with google"></SocialLogin>
+                        <p className="px-10 mt-[-20px] text-[#00AFA7] text-base font-semibold"><Link to="/registration">New here? Create a new account</Link></p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>

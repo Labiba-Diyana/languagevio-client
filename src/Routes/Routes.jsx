@@ -22,6 +22,7 @@ import FeedBack from "../pages/Dashboard/FeedBack/FeedBack";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import LostPage from "../pages/LostPage/LostPage";
 
 
 
@@ -102,4 +103,8 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '*',
+    element: <LostPage></LostPage>
+  }
 ]);

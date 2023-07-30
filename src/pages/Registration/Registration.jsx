@@ -5,6 +5,8 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import bg from '../../assets/background-img/bg-2.png'
+import img from '../../assets/image/register.png'
 
 
 const Registration = () => {
@@ -54,26 +56,26 @@ const Registration = () => {
 
     return (
         <div className="pt-32">
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
+            <div style={{backgroundImage: `url(${bg})`}} className="hero min-h-screen bg-stone-100">
+                <div className="hero-content lg:flex justify-between">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">singup now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <img src={img} alt="" />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-xl p-5 shadow-2xl bg-white my-44">
+                    <h3 className="text-center text-3xl font-bold mb-[-10px] mt-6">Register Your Account</h3>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name="name" {...register("name", { required: true })} placeholder="email" className="input input-bordered" />
+                                <input type="text" name="name" {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
                                 {errors.name && <span className="text-red-600">Name is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                                <input type="email" name="email" {...register("email", { required: true })} placeholder="Email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-600">Email is required</span>}
                             </div>
                             <div className="form-control">
@@ -84,7 +86,7 @@ const Registration = () => {
                                     required: true,
                                     minLength: 6,
                                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
-                                })} placeholder="password" className="input input-bordered" />
+                                })}  placeholder="Password" className="input input-bordered" />
                                 {errors.password?.type === "required" && (
                                     <p className="text-red-600">Password is required</p>
                                 )}
@@ -99,22 +101,22 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input type="password" name="confirm" {...register("confirm", { required: true })} placeholder="password" className="input input-bordered" />
+                                <input type="password" name="confirm" {...register("confirm", { required: true })} placeholder="Confirm Password" className="input input-bordered" />
                                 {errors.confirm && <span className="text-red-600">Please confirm your password</span>}{error && <span className="text-amber-500">{error}</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="text" name="photo" {...register("photo", { required: true })} placeholder="password" className="input input-bordered" />
+                                <input type="text" name="photo" {...register("photo", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                                 {errors.photo && <span className="text-red-600">Photo URL is required</span>}
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn bg-[#00AFA7] text-lg text-white" type="submit" value="Register" />
                             </div>
                         </form>
-                        <p><small><Link to="/login">Already have an account? Go to Login</Link></small></p>
-                        <SocialLogin title="Continue With Google"></SocialLogin>
+                        <p className="px-10 mt-[-18px] text-[#00AFA7] text-base font-semibold"><Link to="/login">Already have an account? Go to Login</Link></p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
             </div>
