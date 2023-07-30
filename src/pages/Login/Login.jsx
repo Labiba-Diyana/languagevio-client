@@ -53,7 +53,7 @@ const Login = () => {
                                 {errors.password && <span className="text-red-600">Password is required</span>}
                                 <p className="text-end" onClick={() => setShow(!show)}>
                                     {
-                                        show ? <button><FaEyeSlash className="w-10 mt-3"></FaEyeSlash></button> : <button><FaEye className="w-10 mt-3"></FaEye></button>
+                                        show ? <FaEyeSlash className="w-10 mt-3"></FaEyeSlash> : <FaEye className="w-10 mt-3"></FaEye>
                                     }
                                 </p>
                             </div>
