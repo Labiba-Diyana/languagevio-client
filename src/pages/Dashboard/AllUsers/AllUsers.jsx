@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/SectionTitle";
 import useAuth from "../../../hooks/useAuth";
-import { FaUserShield } from 'react-icons/Fa';
-import { FaUserTie } from 'react-icons/Fa';
+
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { FaUserShield, FaUserTie } from "react-icons/fa";
 
 
 const AllUsers = () => {
@@ -22,7 +22,7 @@ const AllUsers = () => {
 
     const handleMakeAdmin = (id, name, email, image) => {
         const oldInstructor = {name, email, image, category: 'normal'};
-        axios.patch(`http://localhost:5000/users/admin/${id}`, oldInstructor)
+        axios.patch(`https://languagevio-server-labiba-diyana.vercel.app/users/admin/${id}`, oldInstructor)
             .then(res => {
                 console.log(res.data)
                 if (res.data?.modifiedCount > 0 || res.data?.result?.modifiedCount > 0) {
@@ -40,7 +40,7 @@ const AllUsers = () => {
 
     const handleMakeInstructor = (id, name, email, image) => {
         const newInstructor = {name, email, image, category: 'normal'};
-        axios.patch(`http://localhost:5000/users/instructor/${id}`, newInstructor)
+        axios.patch(`https://languagevio-server-labiba-diyana.vercel.app/users/instructor/${id}`, newInstructor)
             .then(res => {
                 console.log(res.data)
                 if (res.data.result.modifiedCount > 0) {

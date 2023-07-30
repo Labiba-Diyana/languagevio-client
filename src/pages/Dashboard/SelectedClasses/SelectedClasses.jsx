@@ -19,7 +19,7 @@ const SelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/studentClasses/${id}`)
+                axios.delete(`https://languagevio-server-labiba-diyana.vercel.app/studentClasses/${id}`)
                     .then(res => {
                         const data = res.data;
                         if (data.deletedCount > 0) {

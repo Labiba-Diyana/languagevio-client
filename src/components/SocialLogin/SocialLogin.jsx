@@ -17,7 +17,7 @@ const SocialLogin = () => {
                 const user = result.user;
                 console.log(user)
                 const saveUser = { name: user.displayName, email: user.email, image: user.photoURL }
-                axios.post('http://localhost:5000/users', saveUser)
+                axios.post('https://languagevio-server-labiba-diyana.vercel.app/users', saveUser)
                     .then(res => {
                         console.log(res.data)
                         navigate(from, { replace: true })

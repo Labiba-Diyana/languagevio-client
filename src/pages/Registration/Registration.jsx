@@ -29,7 +29,7 @@ const Registration = () => {
                         updateUserProfile(data.name, data.photo)
                             .then(() => {
                                 const saveUser = { name: data.name, email: data.email, image: data.photo }
-                                axios.post('http://localhost:5000/users', saveUser)
+                                axios.post('https://languagevio-server-labiba-diyana.vercel.app/users', saveUser)
                                 .then(res => {
                                     console.log(res.data)
                                     if(res.data.insertedId){

@@ -18,7 +18,7 @@ const SingleClass = ({ singlesClass }) => {
     const handleSelectedClass = () => {
         if (user && user?.email) {
             const selectedClass = { classId: _id, name, image, price, seats, email, instructorName, userEmail: user?.email, approvedId, students }
-            fetch('http://localhost:5000/studentClasses', {
+            fetch('https://languagevio-server-labiba-diyana.vercel.app/studentClasses', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

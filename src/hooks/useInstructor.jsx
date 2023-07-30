@@ -5,7 +5,7 @@ const useInstructor = () => {
     const {data: instructors = []} = useQuery({
         queryKey: ['instructor'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/instructors')
+            const res = await fetch('https://languagevio-server-labiba-diyana.vercel.app/instructors')
             return res.json()
         }
     })

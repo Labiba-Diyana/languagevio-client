@@ -23,7 +23,7 @@ const ManageClasses = () => {
     const handleApproved = (id, image, name, instructorName, seats, price, students, email) => {
         const approvedClass = { image, name, instructorName, seats, price, students, email, approvedId: id }
 
-        axios.patch(`http://localhost:5000/newClasses/approved/${id}`, approvedClass)
+        axios.patch(`https://languagevio-server-labiba-diyana.vercel.app/newClasses/approved/${id}`, approvedClass)
             .then(res => {
                 if (res.data.result.modifiedCount > 0) {
                     refetch();
@@ -39,7 +39,7 @@ const ManageClasses = () => {
     }
 
     const handleDeny = id => {
-        axios.patch(`http://localhost:5000/newClasses/denied/${id}`)
+        axios.patch(`https://languagevio-server-labiba-diyana.vercel.app/newClasses/denied/${id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
