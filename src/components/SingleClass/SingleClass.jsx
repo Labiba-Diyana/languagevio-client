@@ -2,17 +2,22 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './SingleClass.css'
 import Swal from 'sweetalert2';
+import useAdmin from '../../hooks/useAdmin';
+import useVerifyInstructor from '../../hooks/useVerifyInstructor';
+
+
 
 const SingleClass = ({ singlesClass }) => {
     const { _id, name, image, price, seats, email, instructorName, approvedId, students } = singlesClass;
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const cardBackground = seats === 12 ? 'bg-red-600' : ''
-
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useVerifyInstructor();
+    const cardBackground = seats === 0 ? 'bg-red-500' : ''
     const handleSelectedClass = () => {
-        if (user && user.email) {
-            const selectedClass = { classId: _id, name, image, price, seats, email, instructorName, userEmail: user?.email, approvedId, students}
+        if (user && user?.email) {
+            const selectedClass = { classId: _id, name, image, price, seats, email, instructorName, userEmail: user?.email, approvedId, students }
             fetch('http://localhost:5000/studentClasses', {
                 method: "POST",
                 headers: {
@@ -22,7 +27,7 @@ const SingleClass = ({ singlesClass }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if(data.insertedId){
+                    if (data.insertedId) {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -34,6 +39,13 @@ const SingleClass = ({ singlesClass }) => {
                 })
         }
         else {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'You have to login first',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate('/login', { state: { from: location } });
         }
 
@@ -56,8 +68,11 @@ const SingleClass = ({ singlesClass }) => {
                         <h5 className="text-xl font-semibold">{instructorName}</h5>
                         <p className="font-bold text-[#e7ae34]">{email}</p>
                     </div>
-                    {seats === 0 || seats === 40 || seats === 80 ? <button disabled className="btn text-base font-semibold text-white">Select</button> :
-                        <button onClick={handleSelectedClass} className="btn bg-[#e7ae34] text-base font-semibold text-white">Select</button>}
+                    {seats === 0 || isAdmin || isInstructor ?
+                        <button disabled className="btn text-base font-semibold text-white">Select</button>
+                        :                       
+                        <button onClick={handleSelectedClass} className="btn bg-[#e7ae34] text-base font-semibold text-white">Select</button>
+                    }
                 </div>
             </div>
         </div>

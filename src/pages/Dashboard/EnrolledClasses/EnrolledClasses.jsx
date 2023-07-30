@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../../hooks/useAuth";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import SectionTitle from "../../../../components/SectionTitle";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../components/SectionTitle";
 
 const EnrolledClasses = () => {
     const { user, loading } = useAuth();
@@ -20,7 +20,7 @@ const EnrolledClasses = () => {
         <div className="pt-20 pb-36 text-center mx-auto w-8/12">
             <SectionTitle heading="My Enrolled" specialWord="Classes"></SectionTitle>
             <div className="bg-stone-50 p-10 rounded shadow-xl">
-                <h3 className="text-2xl text-start pl-7 font-medium pb-5">Total Classes: {enrolledClasses.length}</h3>
+                <h3 className="text-2xl text-start pl-7 font-medium pb-5">Total Enrolled Classes: {enrolledClasses.length}</h3>
                 <div className="overflow-x-auto rounded-t-lg ">
                     <table className="table table-zebra">
                         {/* head */}

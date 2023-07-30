@@ -79,6 +79,10 @@ const Dashboard = () => {
                                     color: isActive ? 'white' : 'black',
                                     background: isActive ? 'transparent' : 'transparent'
                                 })}>My Enrolled Classes</NavLink></li>
+                                <li><NavLink to="/dashboard/history" style={({ isActive }) => ({
+                                    color: isActive ? 'white' : 'black',
+                                    background: isActive ? 'transparent' : 'transparent'
+                                })}>Payment History</NavLink></li>
                             </>
                         }
                     </ul>

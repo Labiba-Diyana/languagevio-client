@@ -13,7 +13,7 @@ const Classes = () => {
             <div className="w-10/12 mx-auto grid grid-cols-3 gap-x-6 gap-y-16">
                 {
                     classes.map(singleClass => <SingleClass
-                        key={singleClass.email}
+                        key={singleClass._id}
                         singlesClass={singleClass}></SingleClass>)
                 }
             </div>

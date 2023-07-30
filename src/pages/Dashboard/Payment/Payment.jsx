@@ -1,7 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 import CheckOutFrom from "./CheckOutFrom";
 import { Elements } from "@stripe/react-stripe-js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
@@ -12,6 +12,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
     const {id} = useParams();
     const [axiosSecure] = useAxiosSecure();
+    const navigate = useNavigate();
     const {loading} = useAuth();
     const { data: classes = [], isLoading, isError } = useQuery({
         queryKey: ['singleClass'],
@@ -28,7 +29,7 @@ const Payment = () => {
     }
 
     if (isError || !classes || classes.length === 0) {
-        return <div>Class not found or has been deleted.</div>;
+        navigate('/dashboard/history');
     }
 
      
